@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+table { 
+
+
+	margin:20px;
+	padding:10px;
+	border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 70%;
+  text-align: center;
+  border-collapse: collapse;
+
+
+
+margin: 20px;}
+</style>
+</head>
+
+<h3>Quote list</h3>
+<table>
+
+	<tr th:each="quote:${quotes}">
+		<td th:text="${quote.id}"></td>
+		<td th:text="${quote.sentence}"></td>
+		<td th:text="${quote.numberWords}"></td>
+		<td th:text="${quote.tag}"></td>
+		
+		
+	</tr>
+
+</table>
+
+<Br><Br><Br><Br>
+<div>
+		<table>
+			<tr>
+
+				<td><a th:href="@{/library/addQuote}">Add a Quote</a></td>
+				
+			</tr>
+		</table>
+	</div>
+
+</html>

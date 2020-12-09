@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+form { 
+
+
+	margin:20px;
+	padding:10px;
+	border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 70%;
+  text-align: center;
+  border-collapse: collapse;
+
+
+
+margin: 20px;}
+</style>
+</head>
+<h3>Add Quote form</h3>
+
+
+<form th:action="@{/library/insertQuote}" th:object="${quote}" method="post">
+     
+	<p>
+		<label>Sentence Quote</label> <input name="sentence"
+			type="text">
+	</p>
+	<p>
+		<label>Number of words</label> <input name="numberWords"
+			type="text">
+	</p>
+	
+		<div th:object="${book}">
+			<label>Select Book</label>
+			<select id="selectBook" name="idBook">
+				
+				<option th:each="book : ${books}" th:value="${book.id}" 
+					th:text="${book.id}+' : '+${book.title} "></option>
+			</select>
+		</div>
+	<p>
+		<button type="submit">Add</button>
+	</p>
+	
+</form>
+</html>
